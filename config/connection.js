@@ -1,4 +1,4 @@
-// Create Dependencies
+// Set up MySQL connection.
 var mysql = require('mysql');
 // connect to sql db
 var connection = mysql.createConnection({
@@ -11,8 +11,8 @@ var connection = mysql.createConnection({
 // Ensure connection is working
 connection.connect(function(err){
     if(err)throw err;
-    console.log("Connect as id: " + connection.threadid);
+    console.log("Connect as id: " + connection.threadId);
 });
 
-// Export the sql connection
+// Export connection for our ORM to use.
 module.exports = connection;
