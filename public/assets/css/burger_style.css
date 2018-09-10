@@ -1,0 +1,28 @@
+
+
+
+body {
+    background-image: url("https://images.unsplash.com/photo-1534790566855-4cb788d389ec?ixlib=rb-0.3.5&s=d9877d28a34f9386889a5b720f60e41d&auto=format&fit=crop&w=1050&q=80");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Metamorphous', cursive;
+    color: black;
+    text-shadow: -1px -1px white,
+    1px -1px 0 white,
+    -1px 1px 0 white,
+    1px 1px 0 white;
+    font-family: 'Source Code Pro', monospace;
+}
+
+#text {
+    color: black;
+    text-shadow: -1px -1px white,
+    1px -1px 0 white,
+    -1px 1px 0 white,
+    1px 1px 0 white;
+    font-family: 'Source Code Pro', monospace;
+}

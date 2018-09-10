@@ -1,20 +1,36 @@
-{{!--<p>I am now connected to the server and the route works</p> --}} {{!-- Create Container --}}
-<div class="container">
+{{!--
+<p>I am now connected to the server and the route works</p> --}} {{!-- Create Container --}}
+<div class="container" id = "body">
     <div class="row">
-        <div class="col-xs-12 text-center" id = "header">
+        <div class="col-xs-12 text-center" id="header">
             <h1>Eat Da Burger!</h1>
         </div>
-        <div class="col-xs-6 text-center" class="task">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 text-center" id="header">
+                    <h4>Create your own burger here!</h4>
+                    <form action="/burgers/create" method="POST">
+                        <input type="text" name="burger_name" class="form-control" value="" id="enter_text">
+                        <button type="submit" class="btn btn-primary" id="enter-text">Start Da Burger!</button>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+        {{!--
+        <div class="col-xs-4 text-center" class="task"> --}}
             <div class="row">
                 {{!-- Loop through all of the burger data --}} 
                 {{#each burger_data}} 
                 {{!-- Unless the burger has been eaten --}} 
                 {{#unless this.devoured}}
-                <div class="col-xs-9 text-center">
+                <div class="col-xs-6 text-center">
                     {{!-- post the data--}}
                     <pre>{{this.id}}. {{this.burger_name}}</pre>
                 </div>
-                <div class="col-xs-3 text-center">
+
+                <div class="col-xs-6 text-center">
                     <form action="/burgers/update?_method=PUT" method="POST" class="button-size">
                         {{!-- Send the data into the server --}}
                         <input type="hidden" name="burger_id" type="text" value={{this.id}}>
@@ -24,28 +40,15 @@
                 </div>
                 {{/unless}} {{/each}}
             </div>
-        </div>
-        
-        <div class = "col-xs-6 text-center" class = "task">
-            {{!-- If burger has been eaten then a "button" is created to show what has been devoured--}}
-            {{#each burger_data}}
+            {{!--
+        </div> --}}
+
+        <div class="col-xs-6 text-center" class="task" id = "eaten"> You have eaten these burgers!
+            {{!-- If burger has been eaten then a "button" is created to show what has been devoured--}} 
+            {{#each burger_data}} 
             {{#if this.devoured}}
 
-            <input type = "text" class = "form-control" placeholder = "{{this.id}}. {{this.burger_name}}" readonly>
-            {{/if}}
-            {{/each}}
-        </div>
-    </div>
-</div>
-
-<div class="container">
-    <div class="row">
-        <div class="col-xs-12 text-center" id = "header">
-            <form action="/burgers/create" method="POST">
-            <input type="text" name = "burger_name" class = "form-control" value = "" id = "enter_text">
-            <button type="submit" class="btn btn-primary" id = "enter-text">Start Da Burger!</button>
-            </form>
-            <p>Create your own burger here!</p>
+            <input type="text" class="form-control" placeholder="{{this.id}}. {{this.burger_name}}"  id = "eaten_list"> {{/if}} {{/each}}
         </div>
     </div>
 </div>
